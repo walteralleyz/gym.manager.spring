@@ -2,6 +2,7 @@ package com.walteralleyz.gymmanager.dto.request;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.walteralleyz.gymmanager.entities.Plan;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -44,6 +45,6 @@ public class ClientDTO {
     @DateTimeFormat
     private String expires;
 
-    @JsonIgnore
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     private Plan plan;
 }

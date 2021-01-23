@@ -11,4 +11,4 @@ Todo
  7. Role definition/check     - NO
  8. Frontend presentational   - NO
  9. Notification System       - NO
- 10. Deploy in cloud           - NO
+ 10. Deploy in cloud          - NO
