@@ -4,16 +4,15 @@ import com.walteralleyz.gymmanager.dto.request.ClientDTO;
 import com.walteralleyz.gymmanager.entities.Client;
 import com.walteralleyz.gymmanager.exceptions.PlanNotFoundException;
 import com.walteralleyz.gymmanager.services.PlanService;
-import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
 @Component
-@NoArgsConstructor
+@AllArgsConstructor(onConstructor_ = @Autowired)
 public class ClientMapper {
-    @Autowired
-    private PlanService planService;
+    private final PlanService planService;
 
     public Client toModel(ClientDTO clientDTO) {
         Client client = new Client();
@@ -34,7 +33,7 @@ public class ClientMapper {
             try {
                 client.setPlan(planService.findById(Long.parseLong("1")));
             } catch (PlanNotFoundException exc) {
-                System.out.println(exc.getMessage());
+                System.out.println("Algum erro ao procurar o plano!");
             }
         }
 

@@ -1,6 +1,7 @@
 package com.walteralleyz.gymmanager.controllers;
 
 import com.walteralleyz.gymmanager.dto.request.ClientDTO;
+import com.walteralleyz.gymmanager.dto.response.MessageResponse;
 import com.walteralleyz.gymmanager.exceptions.ClientNotFoundException;
 import com.walteralleyz.gymmanager.services.ClientService;
 import lombok.AllArgsConstructor;
@@ -18,8 +19,8 @@ public class ClientController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String create(@RequestBody @Valid ClientDTO clientDTO) {
-        return clientService.create(clientDTO);
+    public MessageResponse create(@RequestBody @Valid ClientDTO clientDTO) {
+        return clientRoutine(clientService.create(clientDTO), "success");
     }
 
     @GetMapping
@@ -34,13 +35,17 @@ public class ClientController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public String delete(@PathVariable Long id) throws ClientNotFoundException {
-        return clientService.delete(id);
+    public MessageResponse delete(@PathVariable Long id) throws ClientNotFoundException {
+        return clientRoutine(clientService.delete(id), "deleted");
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public String update(@PathVariable Long id, ClientDTO clientDTO) throws ClientNotFoundException {
-        return clientService.update(id, clientDTO);
+    public MessageResponse update(@PathVariable Long id, @RequestBody @Valid ClientDTO clientDTO) throws ClientNotFoundException {
+        return clientRoutine(clientService.update(id, clientDTO), "updated");
+    }
+
+    public MessageResponse clientRoutine(String operation, String type) {
+        return new MessageResponse(operation, type);
     }
 }
