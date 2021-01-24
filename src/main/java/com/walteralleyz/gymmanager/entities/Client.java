@@ -1,13 +1,12 @@
 package com.walteralleyz.gymmanager.entities;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -19,28 +18,23 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty
-    @NotBlank
-    @Size(min = 4, max = 30)
+    @Column(nullable = false)
     private String name;
 
-    @NotEmpty
-    @Email
+    @Column(unique = true, nullable = false)
     private String email;
 
-    @NotNull
+    @Column(nullable = false)
     private double weight;
 
-    @NotNull
+    @Column(nullable = false)
     private double height;
 
-    @JsonFormat(pattern = "YYYY-MM-dd HH:mm")
-    @NotNull
-    private String createdAt;
+    @Column(nullable = false)
+    private LocalDate createdAt;
 
-    @JsonFormat(pattern = "YYYY-MM-dd HH:mm")
-    @NotNull
-    private String expireTime;
+    @Column(nullable = false)
+    private LocalDate expireTime;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private Plan plan;

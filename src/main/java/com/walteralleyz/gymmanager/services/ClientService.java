@@ -17,11 +17,10 @@ public class ClientService {
     private final ClientRepository clientRepository;
     private final ClientMapper clientMapper;
 
-    public String create(ClientDTO clientDTO) {
+    public Client create(ClientDTO clientDTO) {
         Client client = clientMapper.toModel(clientDTO);
-        clientRepository.save(client);
 
-        return "Cliente salvo com sucesso";
+        return clientRepository.save(client);
     }
 
     public List<ClientDTO> findAll() {

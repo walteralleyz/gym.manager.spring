@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Entity
 @Table(name = "roles")
@@ -20,7 +19,4 @@ public class Role {
 
     @NotNull
     private String type;
-
-    @OneToMany(mappedBy = "role")
-    private List<Staff> staff;
 }
