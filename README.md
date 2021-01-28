@@ -1,14 +1,16 @@
 ## GYM MANAGER
 **A project made in Spring Boot Java**
 
-Todo
- 1. Plans Controller/Entity   - OK
- 2. Clients Controller/Entity - OK
- 3. H2 testing DB             - OK
- 4. Entities Relation         - OK
- 5. Security Endpoints        - OK
- 6. Login check/system        - OK
- 7. Role definition/check     - OK
- 8. Frontend presentational   - NO
- 9. Notification System       - NO
- 10. Deploy in cloud          - NO
+List of tasks
+| Todo | Done |
+|--:|:--:|
+| Plans Controller/Entity   | OK |
+| Clients Controller/Entity | OK |
+| H2 testing DB             | OK |
+| Entities Relation         | OK |
+| Security Endpoints        | OK |
+| Login check/system        | OK |
+| Role definition/check     | OK |
+| Frontend presentational   | NO |
+| Notification System       | NO |
+| Deploy in cloud           | NO |
