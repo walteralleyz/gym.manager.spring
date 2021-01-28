@@ -14,10 +14,8 @@ import java.util.List;
 public class PlanService {
     private final PlanRepository planRepository;
 
-    public String create(Plan plan) {
-        Plan planCreated = planRepository.save(plan);
-
-        return "Plano criado com sucesso";
+    public Plan create(Plan plan) {
+        return planRepository.save(plan);
     }
 
     public String delete(Long id) throws PlanNotFoundException {

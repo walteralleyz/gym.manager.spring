@@ -8,8 +8,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-
 @Component
 @AllArgsConstructor(onConstructor_ = @Autowired)
 public class StaffMapper {
@@ -19,12 +17,8 @@ public class StaffMapper {
         Staff staff = new Staff();
 
         staff.setId(staffDTO.getId());
-        staff.setName(staffDTO.getName());
-        staff.setEmail(staffDTO.getName());
+        staff.setUsername(staffDTO.getUsername());
         staff.setPassword(staffDTO.getPassword());
-        staff.setEmail(staffDTO.getEmail());
-        staff.setCreatedAt(staffDTO.getCreated());
-        staff.setPhone(staffDTO.getPhone());
 
         try {
             staff.setRole(roleService.findById(staffDTO.getRoleId()));
@@ -43,12 +37,8 @@ public class StaffMapper {
         StaffDTO staffDTO = new StaffDTO();
 
         staffDTO.setId(staff.getId());
-        staffDTO.setName(staff.getName());
-        staffDTO.setEmail(staff.getName());
+        staffDTO.setUsername(staff.getUsername());
         staffDTO.setPassword(staff.getPassword());
-        staffDTO.setEmail(staff.getEmail());
-        staffDTO.setCreated(staff.getCreatedAt());
-        staffDTO.setPhone(staff.getPhone());
         staffDTO.setRoleId(staff.getRole().getId());
         staffDTO.setRole(staff.getRole());
 
